@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Recurrent Video Masked Autoencoders">
+    <meta name="keywords" content="RVM">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recurrent Video Masked Autoencoders</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Recurrent Video Masked Autoencoders</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://people.csail.mit.edu/danielzoran/">Daniel Zoran</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://nikparth.github.io/">Nikhil Parthasarathy</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://yangyi02.github.io">Yi Yang</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://cs.stanford.edu/~dorarad/">Drew A Hudson</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=IUZ-7_cAAAAJ">Joao
+                                    Carreira</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.robots.ox.ac.uk/~az/">Andrew Zisserman</a><sup>1,2</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Google DeepMind,</span>
+                            <span class="author-block"><sup>2</sup>University of Oxford</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <img src="static/images/teaser.png" alt="Description of Image">
+                        <p>
+                            RVM leverages recurrent computation and asymmetric masking to yield a highly efficient
+                            generalist encoder that achieves competitive performance across semantic and geometric video
+                            tasks with linear computational cost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present Recurrent Video Masked-Autoencoders
+                            (RVM): a novel approach to video representation learning
+                            that leverages recurrent computation to model the tempo-
+                            ral structure of video data. RVM couples an asymmetric
+                            masking objective with a transformer-based recurrent neu-
+                            ral network to aggregate information over time, training
+                            solely on a simple pixel reconstruction loss. This design
+                            yields a highly efficient "generalist" encoder: RVM achieves
+                            competitive performance with state-of-the-art video models
+                            (e.g. VideoMAE, V-JEPA) on video-level tasks like action
+                            classification, and point and object tracking, while matching
+                            or exceeding the performance of image models (e.g. DI-
+                            NOv2) on tasks that require strong geometric and dense
+                            spatial features. Notably, RVM achieves strong performance
+                            in the small-model regime without requiring knowledge dis-
+                            tillation, exhibiting up to 30× greater parameter efficiency
+                            than competing video masked autoencoders. Finally, we
+                            demonstrate that RVM’s recurrent nature allows for stable
+                            feature propagation over long temporal horizons with lin-
+                            ear computational cost, overcoming some of the limitations
+                            of standard spatio-temporal attention-based video models.
+                            Ablation studies further highlight the factors driving the
+                            model’s success, with qualitative results showing that RVM
+                            learns rich representations of scene semantics, structure,
+                            and motion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="davis">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">DAVIS Video Segmentation</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present qualitative results on 7 randomly selected videos from the DAVIS-2017 dataset for
+                            the
+                            video object segmentation task (first-frame ground-truth provided). The task is to propagate
+                            the
+                            ground-truth object segmentation from the first frame to all subsequent frames.
+                        </p>
+                    </div>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="davis_video_segmentation/bike-packing.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        bike-packing.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="davis_video_segmentation/bmx-trees.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        bmx-trees.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="davis_video_segmentation/gold-fish.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        gold-fish.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="davis_video_segmentation/horsejump-high.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        horsejump-high.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="davis_video_segmentation/judo.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        judo.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="davis_video_segmentation/lab-coat.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        lab-coat.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="davis_video_segmentation/pigs.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        pigs.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="jhmdb">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">JHMDB Pose Tracking</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present qualitative results on 5 randomly selected videos from the JHMDB dataset for the
+                            human
+                            pose tracking task (first-frame ground-truth provided). The task is to propagate the
+                            ground-truth
+                            human keypoints from the first frame to all subsequent frames.
+                        </p>
+                    </div>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source
+                                            src="jhmdb_pose_tracking/Brushing_my_hair_-_December_2008_brush_hair_u_nm_np1_ba_goo_0.mp4"
+                                            type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        Brushing_my_hair...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source
+                                            src="jhmdb_pose_tracking/Goalkeeper_Training_Day_@_7_catch_f_cm_np1_ri_med_0.mp4"
+                                            type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        Goalkeeper_Training...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="jhmdb_pose_tracking/KnifeThrowing_throw_f_nm_np1_le_med_3.mp4"
+                                            type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        KnifeThrowing...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="jhmdb_pose_tracking/MeShootin2_shoot_gun_u_nm_np1_ri_med_2.mp4"
+                                            type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        MeShootin2...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="jhmdb_pose_tracking/Pick_Up_Your_Trash!_pick_f_cm_np1_le_med_0.mp4"
+                                            type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        Pick_Up_Your_Trash!...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="kmeans">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">KMeans Visualization</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present qualitative results on 5 randomly selected videos from the DAVIS-2017 dataset
+                            using
+                            KMeans clustering to illustrate how each model decomposes visual structure in a video.
+                            KMeans is
+                            applied directly to the raw feature maps without any additional processing, using K = 5
+                            clusters.
+                        </p>
+                    </div>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="kmeans/breakdance_kmeans.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        breakdance_kmeans.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="kmeans/car-roundabout_kmeans.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        car-roundabout_kmeans.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="kmeans/goat_kmeans.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        goat_kmeans.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="kmeans/judo_kmeans.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        judo_kmeans.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="kmeans/pigs_kmeans.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        pigs_kmeans.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="noise">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Noise Video Comparison</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present qualitative results on a random noise video using PCA and KMeans clustering to
+                            evaluate
+                            whether each model’s representations can capture motion independent of semantic content.
+                        </p>
+                    </div>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="noise_video_comparison/noise_kmeans.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        noise_kmeans.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="noise_video_comparison/noise_pca.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        noise_pca.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pca">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">PCA Visualization</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present qualitative results on 5 randomly selected videos from the DAVIS-2017 dataset
+                            using
+                            principal component analysis (PCA) to illustrate what each model primarily captures in a
+                            video. We
+                            extract the first three principal components and visualize them as RGB images.
+                        </p>
+                    </div>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="pca/breakdance_pca.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        breakdance_pca.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="pca/car-roundabout_pca.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        car-roundabout_pca.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="pca/goat_pca.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        goat_pca.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="pca/judo_pca.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        judo_pca.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="pca/pigs_pca.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        pigs_pca.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="vip">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">VIP Part Propagation</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present qualitative results on 5 randomly selected videos from the VIP dataset for the
+                            video part
+                            segmentation task (first-frame ground-truth provided). The task is to propagate the
+                            ground-truth
+                            human part segmentation from the first frame to all subsequent frames.
+                        </p>
+                    </div>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="vip_part_propagation/videos233.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        videos233.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="vip_part_propagation/videos311.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        videos311.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="vip_part_propagation/videos338.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        videos338.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="vip_part_propagation/videos361.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        videos361.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <video controls preload="metadata" width="100%">
+                                        <source src="vip_part_propagation/videos37.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content is-small">
+                                        videos37.mp4
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Related Links</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            <a href="#">Related Paper 1</a> Description of related paper 1.
+                        </p>
+                        <p>
+                            <a href="#">Related Paper 2</a> Description of related paper 2.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="#">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="#" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+                                Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                        <p>
+                            This means you are free to borrow the <a
+                                href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+                            which itself is a fork of <a
+                                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We just ask that you
+                            link back to this page in the footer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

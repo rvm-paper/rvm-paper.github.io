@@ -4,10 +4,18 @@ body {
   background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
 }
 
+/* CSS Custom Properties */
+:root {
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-primary-reverse: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  --color-primary: #667eea;
+  --color-secondary: #764ba2;
+}
+
 /* Subtle background pattern */
-body::before {
+body::after {
   content: '';
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,7 +29,7 @@ body::before {
 
 /* Hero section enhancements */
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   position: relative;
   overflow: hidden;
 }
@@ -33,7 +41,8 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+  background: var(--gradient-primary);
+  opacity: 0.9;
   z-index: 1;
 }
 
@@ -85,12 +94,12 @@ body::before {
 }
 
 .button.is-dark {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   border: none;
 }
 
 .button.is-dark:hover {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: var(--gradient-primary-reverse);
 }
 
 /* Link block spacing */
@@ -112,7 +121,7 @@ body::before {
 
 /* Footer enhancements */
 .footer {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   color: white;
   margin-top: 4rem;
 }
@@ -220,7 +229,7 @@ body::before {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   border-radius: 2px;
 }
 
@@ -250,6 +259,29 @@ body::before {
 
 .card:hover .card-image video {
   transform: scale(1.05);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .button:hover {
+    transform: none;
+  }
+  
+  .teaser img:hover {
+    transform: none;
+  }
 }
 
 .publication-banner {

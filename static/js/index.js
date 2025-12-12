@@ -75,16 +75,15 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
-    // Throttle function for performance
-    function throttle(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
+    // Throttle function for scroll performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
         };
     }
 
@@ -111,7 +110,7 @@ $(document).ready(function() {
     });
 
     // Run on scroll with throttling and on load
-    window.addEventListener('scroll', throttle(revealOnScroll, 100));
+    window.addEventListener('scroll', throttle(revealOnScroll, 150));
     revealOnScroll();
 
     // Add smooth scroll for anchor links

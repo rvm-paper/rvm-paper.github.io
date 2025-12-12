@@ -75,6 +75,19 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
+    // Throttle function for performance
+    function throttle(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
     // Add scroll reveal animations
     function revealOnScroll() {
         const sections = document.querySelectorAll('.section');
@@ -85,8 +98,8 @@ $(document).ready(function() {
             const elementVisible = 150;
             
             if (elementTop < windowHeight - elementVisible) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
+                section.classList.add('section-visible');
+                section.classList.remove('section-hidden');
             }
         });
     }
@@ -94,13 +107,11 @@ $(document).ready(function() {
     // Initialize sections for scroll reveal
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        section.classList.add('section-hidden');
     });
 
-    // Run on scroll and on load
-    window.addEventListener('scroll', revealOnScroll);
+    // Run on scroll with throttling and on load
+    window.addEventListener('scroll', throttle(revealOnScroll, 100));
     revealOnScroll();
 
     // Add smooth scroll for anchor links

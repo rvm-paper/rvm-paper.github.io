@@ -75,4 +75,49 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
+    // Add scroll reveal animations
+    function revealOnScroll() {
+        const sections = document.querySelectorAll('.section');
+        const windowHeight = window.innerHeight;
+        
+        sections.forEach(section => {
+            const elementTop = section.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    // Initialize sections for scroll reveal
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+
+    // Run on scroll and on load
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // Add smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href !== '') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
 })

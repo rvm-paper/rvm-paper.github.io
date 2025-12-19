@@ -28,8 +28,7 @@ body {
 }
 
 
-.publication-title {
-}
+
 
 .publication-banner {
   max-height: parent;
@@ -44,8 +43,7 @@ body {
   object-fit: fit;
 }
 
-.publication-header .hero-body {
-}
+
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
@@ -67,8 +65,7 @@ body {
     font-weight: bolder;
 }
 
-.publication-authors {
-}
+
 
 .publication-authors a {
    color: hsl(204, 86%, 53%) !important;
@@ -82,12 +79,8 @@ body {
   display: inline-block;
 }
 
-.publication-banner img {
-}
 
-.publication-authors {
-  /*color: #4286f4;*/
-}
+
 
 .publication-video {
     position: relative;
@@ -107,8 +100,7 @@ body {
     height: 100%;
 }
 
-.publication-body img {
-}
+
 
 .results-carousel {
   overflow: hidden;
@@ -117,7 +109,6 @@ body {
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
-  border: 1px solid #bbb;
   border-radius: 10px;
   padding: 0;
   font-size: 0;
@@ -128,6 +119,27 @@ body {
 }
 
 
+.slider-pagination .slider-page {
+  background: #eee;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border: none;
+  box-shadow: none;
+}
+
+.slider-pagination .slider-page.is-active {
+  background: #3273dc;
+}
+
+.slider-navigation-previous,
+.slider-navigation-next {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
 .interpolation-panel {
   background: #f5f5f5;
   border-radius: 10px;
@@ -138,8 +150,7 @@ body {
   border-radius: 5px;
 }
 
-.interpolation-video-column {
-}
+
 
 .interpolation-panel .slider {
   margin: 0 !important;

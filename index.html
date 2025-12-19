@@ -159,116 +159,53 @@
     </section>
 
     <section class="section" id="davis">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content">
                     <h2 class="title is-3">DAVIS Video Segmentation</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            We present qualitative results on 7 randomly selected videos from the DAVIS-2017 dataset for
-                            the
-                            video object segmentation task (first-frame ground-truth provided). The task is to propagate
-                            the
-                            ground-truth object segmentation from the first frame to all subsequent frames.
-                        </p>
-                    </div>
-                    <div class="columns is-multiline is-centered">
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="davis_video_segmentation/bike-packing.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        bike-packing.mp4
-                                    </div>
-                                </div>
+                    <p>
+                        We present qualitative results on 7 randomly selected videos from the DAVIS-2017 dataset for
+                        the
+                        video object segmentation task (first-frame ground-truth provided). The task is to propagate
+                        the
+                        ground-truth object segmentation from the first frame to all subsequent frames.
+                    </p>
+                    <div class="container">
+                        <div id="davis-carousel" class="carousel results-carousel">
+                            <div class="item">
+                                <video poster="" id="bike-packing" autoplay controls muted loop playsinline height="100%">
+                                    <source src="davis_video_segmentation/bike-packing.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="davis_video_segmentation/bmx-trees.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        bmx-trees.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" id="bmx-trees" autoplay controls muted loop playsinline height="100%">
+                                    <source src="davis_video_segmentation/bmx-trees.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="davis_video_segmentation/gold-fish.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        gold-fish.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" id="gold-fish" autoplay controls muted loop playsinline height="100%">
+                                    <source src="davis_video_segmentation/gold-fish.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="davis_video_segmentation/horsejump-high.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        horsejump-high.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" id="horsejump-high" autoplay controls muted loop playsinline height="100%">
+                                    <source src="davis_video_segmentation/horsejump-high.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="davis_video_segmentation/judo.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        judo.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" id="judo" autoplay controls muted loop playsinline height="100%">
+                                    <source src="davis_video_segmentation/judo.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="davis_video_segmentation/lab-coat.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        lab-coat.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" id="lab-coat" autoplay controls muted loop playsinline height="100%">
+                                    <source src="davis_video_segmentation/lab-coat.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="davis_video_segmentation/pigs.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        pigs.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" id="pigs" autoplay controls muted loop playsinline height="100%">
+                                    <source src="davis_video_segmentation/pigs.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -278,95 +215,44 @@
     </section>
 
     <section class="section" id="jhmdb">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content">
                     <h2 class="title is-3">JHMDB Pose Tracking</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            We present qualitative results on 5 randomly selected videos from the JHMDB dataset for the
-                            human
-                            pose tracking task (first-frame ground-truth provided). The task is to propagate the
-                            ground-truth
-                            human keypoints from the first frame to all subsequent frames.
-                        </p>
-                    </div>
-                    <div class="columns is-multiline is-centered">
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source
-                                            src="jhmdb_pose_tracking/Brushing_my_hair_-_December_2008_brush_hair_u_nm_np1_ba_goo_0.mp4"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        Brushing_my_hair...
-                                    </div>
-                                </div>
+                    <p>
+                        We present qualitative results on 5 randomly selected videos from the JHMDB dataset for the
+                        human
+                        pose tracking task (first-frame ground-truth provided). The task is to propagate the
+                        ground-truth
+                        human keypoints from the first frame to all subsequent frames.
+                    </p>
+                    <div class="container">
+                        <div id="jhmdb-carousel" class="carousel results-carousel">
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="jhmdb_pose_tracking/Brushing_my_hair_-_December_2008_brush_hair_u_nm_np1_ba_goo_0.mp4"
+                                        type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source
-                                            src="jhmdb_pose_tracking/Goalkeeper_Training_Day_@_7_catch_f_cm_np1_ri_med_0.mp4"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        Goalkeeper_Training...
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="jhmdb_pose_tracking/Goalkeeper_Training_Day_@_7_catch_f_cm_np1_ri_med_0.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="jhmdb_pose_tracking/KnifeThrowing_throw_f_nm_np1_le_med_3.mp4"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        KnifeThrowing...
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="jhmdb_pose_tracking/KnifeThrowing_throw_f_nm_np1_le_med_3.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="jhmdb_pose_tracking/MeShootin2_shoot_gun_u_nm_np1_ri_med_2.mp4"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        MeShootin2...
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="jhmdb_pose_tracking/MeShootin2_shoot_gun_u_nm_np1_ri_med_2.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="jhmdb_pose_tracking/Pick_Up_Your_Trash!_pick_f_cm_np1_le_med_0.mp4"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        Pick_Up_Your_Trash!...
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="jhmdb_pose_tracking/Pick_Up_Your_Trash!_pick_f_cm_np1_le_med_0.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -376,89 +262,44 @@
     </section>
 
     <section class="section" id="kmeans">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content">
                     <h2 class="title is-3">KMeans Visualization</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            We present qualitative results on 5 randomly selected videos from the DAVIS-2017 dataset
-                            using
-                            KMeans clustering to illustrate how each model decomposes visual structure in a video.
-                            KMeans is
-                            applied directly to the raw feature maps without any additional processing, using K = 5
-                            clusters.
-                        </p>
-                    </div>
-                    <div class="columns is-multiline is-centered">
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="kmeans/breakdance_kmeans.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        breakdance_kmeans.mp4
-                                    </div>
-                                </div>
+                    <p>
+                        We present qualitative results on 5 randomly selected videos from the DAVIS-2017 dataset
+                        using
+                        KMeans clustering to illustrate how each model decomposes visual structure in a video.
+                        KMeans is
+                        applied directly to the raw feature maps without any additional processing, using K = 5
+                        clusters.
+                    </p>
+                    <div class="container">
+                        <div id="kmeans-carousel" class="carousel results-carousel">
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="kmeans/breakdance_kmeans.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="kmeans/car-roundabout_kmeans.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        car-roundabout_kmeans.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="kmeans/car-roundabout_kmeans.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="kmeans/goat_kmeans.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        goat_kmeans.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="kmeans/goat_kmeans.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="kmeans/judo_kmeans.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        judo_kmeans.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="kmeans/judo_kmeans.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="kmeans/pigs_kmeans.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        pigs_kmeans.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="kmeans/pigs_kmeans.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -468,44 +309,26 @@
     </section>
 
     <section class="section" id="noise">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content">
                     <h2 class="title is-3">Noise Video Comparison</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            We present qualitative results on a random noise video using PCA and KMeans clustering to
-                            evaluate
-                            whether each model’s representations can capture motion independent of semantic content.
-                        </p>
-                    </div>
-                    <div class="columns is-multiline is-centered">
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="noise_video_comparison/noise_kmeans.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        noise_kmeans.mp4
-                                    </div>
-                                </div>
+                    <p>
+                        We present qualitative results on a random noise video using PCA and KMeans clustering to
+                        evaluate
+                        whether each model’s representations can capture motion independent of semantic content.
+                    </p>
+                    <div class="container">
+                        <div id="noise-carousel" class="carousel results-carousel">
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="noise_video_comparison/noise_kmeans.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="noise_video_comparison/noise_pca.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        noise_pca.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="noise_video_comparison/noise_pca.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -515,88 +338,43 @@
     </section>
 
     <section class="section" id="pca">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content">
                     <h2 class="title is-3">PCA Visualization</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            We present qualitative results on 5 randomly selected videos from the DAVIS-2017 dataset
-                            using
-                            principal component analysis (PCA) to illustrate what each model primarily captures in a
-                            video. We
-                            extract the first three principal components and visualize them as RGB images.
-                        </p>
-                    </div>
-                    <div class="columns is-multiline is-centered">
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="pca/breakdance_pca.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        breakdance_pca.mp4
-                                    </div>
-                                </div>
+                    <p>
+                        We present qualitative results on 5 randomly selected videos from the DAVIS-2017 dataset
+                        using
+                        principal component analysis (PCA) to illustrate what each model primarily captures in a
+                        video. We
+                        extract the first three principal components and visualize them as RGB images.
+                    </p>
+                    <div class="container">
+                        <div id="pca-carousel" class="carousel results-carousel">
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="pca/breakdance_pca.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="pca/car-roundabout_pca.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        car-roundabout_pca.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="pca/car-roundabout_pca.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="pca/goat_pca.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        goat_pca.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="pca/goat_pca.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="pca/judo_pca.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        judo_pca.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="pca/judo_pca.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="pca/pigs_pca.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        pigs_pca.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="pca/pigs_pca.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -606,88 +384,43 @@
     </section>
 
     <section class="section" id="vip">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content">
                     <h2 class="title is-3">VIP Part Propagation</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            We present qualitative results on 5 randomly selected videos from the VIP dataset for the
-                            video part
-                            segmentation task (first-frame ground-truth provided). The task is to propagate the
-                            ground-truth
-                            human part segmentation from the first frame to all subsequent frames.
-                        </p>
-                    </div>
-                    <div class="columns is-multiline is-centered">
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="vip_part_propagation/videos233.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        videos233.mp4
-                                    </div>
-                                </div>
+                    <p>
+                        We present qualitative results on 5 randomly selected videos from the VIP dataset for the
+                        video part
+                        segmentation task (first-frame ground-truth provided). The task is to propagate the
+                        ground-truth
+                        human part segmentation from the first frame to all subsequent frames.
+                    </p>
+                    <div class="container">
+                        <div id="vip-carousel" class="carousel results-carousel">
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="vip_part_propagation/videos233.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="vip_part_propagation/videos311.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        videos311.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="vip_part_propagation/videos311.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="vip_part_propagation/videos338.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        videos338.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="vip_part_propagation/videos338.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="vip_part_propagation/videos361.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        videos361.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="vip_part_propagation/videos361.mp4" type="video/mp4">
+                                </video>
                             </div>
-                        </div>
-                        <div class="column is-one-third">
-                            <div class="card">
-                                <div class="card-image">
-                                    <video controls preload="metadata" width="100%">
-                                        <source src="vip_part_propagation/videos37.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="card-content">
-                                    <div class="content is-small">
-                                        videos37.mp4
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <video poster="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="vip_part_propagation/videos37.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>

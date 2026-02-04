@@ -441,6 +441,49 @@
         </div>
     </section>
 
+    <section class="section" id="libero">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Libero Benchmark Results (Frozen Backbone)</h2>
+                    <img src="static/images/libero.webp" alt="Libero Benchmark Results">
+                    <div class="content has-text-justified">
+                        <p>
+                            We evaluate frozen visual representations on the <a
+                                href="https://libero-project.github.io/">Libero</a> robotics benchmark using a
+                            <strong>Diffusion Policy</strong> architecture. The policy consists of a transformer-based
+                            encoder-decoder (10 layers, 8 attention heads) with DDIM sampling over 50 diffusion timesteps.
+                            Each frozen backbone (ResNet-based) encodes visual observations, which are then used for
+                            action prediction with a horizon of 10 steps. We train for 1M steps using AdamW with cosine
+                            learning rate decay and EMA weight averaging across 10 Libero tasks with scalar task
+                            conditioning.
+                        </p>
+                        <p>
+                            Each reported score is the average success rate across <strong>five independent seeds</strong>,
+                            with 20 evaluation episodes per task.
+                        </p>
+                        <ul>
+                            <li><strong>VideoSiamMAE:</strong> Demonstrated exceptional stability and performance. All five
+                                seeds consistently achieved a <strong>90% average success rate</strong>, resulting in a
+                                strong and reliable final average.</li>
+                            <li><strong>Moog_v2 & VideoMAE_v2:</strong> Performed comparably, yielding roughly equivalent
+                                <strong>80% success rates</strong>.
+                            </li>
+                            <li><strong>Croco:</strong> Average success rate dropped significantly due to lower performance
+                                on two of the five seeds.</li>
+                            <li><strong>DINO_v2, VJEPA, & VideoMAE_v1:</strong> Performed much worse than the other
+                                methods.</li>
+                        </ul>
+                        <p>
+                            These results are quite promising, suggesting that VideoSiamMAE provides a powerful and stable
+                            representation for robotic manipulation tasks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section">
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">

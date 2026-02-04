@@ -451,32 +451,16 @@
                         <p>
                             We evaluate frozen visual representations on the <a
                                 href="https://libero-project.github.io/">Libero</a> robotics benchmark using a
-                            <strong>Diffusion Policy</strong> architecture. The policy consists of a transformer-based
-                            encoder-decoder (10 layers, 8 attention heads) with DDIM sampling over 50 diffusion timesteps.
-                            Each frozen backbone (ResNet-based) encodes visual observations, which are then used for
-                            action prediction with a horizon of 10 steps. We train for 1M steps using AdamW with cosine
-                            learning rate decay and EMA weight averaging across 10 Libero tasks with scalar task
-                            conditioning.
+                            <strong>Diffusion Policy</strong> with a transformer-based predictor and DDIM sampling.
+                            Each frozen backbone encodes observations from two camera views, with task descriptions
+                            encoded via a frozen SigLIP text encoder. We train for 100K steps across all 10 Libero-10
+                            tasks. Results are averaged over <strong>five seeds</strong>.
                         </p>
                         <p>
-                            Each reported score is the average success rate across <strong>five independent seeds</strong>,
-                            with 20 evaluation episodes per task.
-                        </p>
-                        <ul>
-                            <li><strong>VideoSiamMAE:</strong> Demonstrated exceptional stability and performance. All five
-                                seeds consistently achieved a <strong>90% average success rate</strong>, resulting in a
-                                strong and reliable final average.</li>
-                            <li><strong>Moog_v2 & VideoMAE_v2:</strong> Performed comparably, yielding roughly equivalent
-                                <strong>80% success rates</strong>.
-                            </li>
-                            <li><strong>Croco:</strong> Average success rate dropped significantly due to lower performance
-                                on two of the five seeds.</li>
-                            <li><strong>DINO_v2, VJEPA, & VideoMAE_v1:</strong> Performed much worse than the other
-                                methods.</li>
-                        </ul>
-                        <p>
-                            These results are quite promising, suggesting that VideoSiamMAE provides a powerful and stable
-                            representation for robotic manipulation tasks.
+                            <strong>RVM</strong> achieves the highest and most stable success rates.
+                            <strong>4DS</strong> and <strong>VideoMAE_v2</strong> perform comparably, while
+                            <strong>CroCo</strong>, <strong>DINOv2</strong>, <strong>V-JEPA</strong>, and
+                            <strong>VideoMAE</strong> show lower performance.
                         </p>
                     </div>
                 </div>

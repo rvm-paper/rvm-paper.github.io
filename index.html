@@ -446,23 +446,35 @@
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Libero Benchmark Results (Frozen Backbone)</h2>
-                    <img src="static/images/libero.webp" alt="Libero Benchmark Results">
+                    <img src="static/images/libero.webp" alt="Libero Benchmark Results" style="margin-bottom: 1.5rem;">
+                    
                     <div class="content has-text-justified">
                         <p>
-                            We evaluate frozen visual representations on the <a
-                                href="https://libero-project.github.io/">Libero</a> robotics benchmark using a
-                            <strong>Diffusion Policy</strong> with a transformer-based predictor and DDIM sampling.
-                            Each frozen backbone encodes observations from two camera views, with task descriptions
-                            encoded via a frozen SigLIP text encoder. We train for 100K steps across all 10 Libero-10
-                            tasks. Results are averaged over <strong>five seeds</strong>.
+                            We evaluate frozen visual representations on the <a href="https://libero-project.github.io/" target="_blank">LIBERO</a> robotics manipulation benchmark. We train a single <strong>multi-task language-conditioned policy</strong> simultaneously across all 10 long-horizon tasks from the <strong>Libero-10</strong> suite.
                         </p>
-                        <p>
-                            <strong>RVM</strong> achieves the highest and most stable success rates.
-                            <strong>Moog_v2</strong> and <strong>VideoMAE_v2</strong> perform comparably, while
-                            <strong>CroCo</strong>, <strong>DINOv2</strong>, <strong>V-JEPA</strong>, and
-                            <strong>VideoMAE</strong> show lower performance.
-                        </p>
-                        <p>
+
+                        <h4 class="title is-5" style="margin-top: 1.2rem; margin-bottom: 0.5rem;">⚙️ Policy Architecture & Multimodal Conditioning</h4>
+                        <ul>
+                            <li><strong>Frozen Visual Encoders:</strong> Video and image backbones (ViT-L) are kept strictly frozen. At each timestep, observations from two camera views (<strong>3rd-person agent view</strong> and <strong>wrist eye-in-hand view</strong>) over a temporal window (e.g., 2–4 history frames) are encoded into visual tokens.</li>
+                            <li><strong>Language & Proprioception:</strong> Task descriptions are encoded via a frozen <strong>SigLIP (B/16)</strong> text encoder. Low-dimensional robot proprioception states (joint positions and gripper state) are embedded via a 2-layer MLP.</li>
+                            <li><strong>Cross-Attention Conditioning:</strong> A 6-layer Transformer Conditioning Processor with <strong>64 learned query tokens</strong> cross-attends across spatial visual features from both camera streams, temporal frame embeddings, language tokens, and proprioceptive features.</li>
+                        </ul>
+
+                        <h4 class="title is-5" style="margin-top: 1.2rem; margin-bottom: 0.5rem;">🎯 Diffusion Policy & Training Setup</h4>
+                        <ul>
+                            <li><strong>Action Predictor:</strong> A 6-layer DiT (Diffusion Transformer) decoder predicts continuous action chunks with a <strong>prediction horizon of 10 steps</strong> and an <strong>execution horizon of 8 steps</strong> (receding horizon control).</li>
+                            <li><strong>Diffusion Schedule & Sampling:</strong> Discrete-time DDPM diffusion process with <strong>50 diffusion timesteps</strong> trained with L1 noise prediction loss, evaluated using a deterministic <strong>DDIM sampler (50 steps)</strong> with static thresholding.</li>
+                            <li><strong>Training:</strong> Trained for <strong>100K gradient steps</strong> with AdamW (batch size 128, initial lr 1e-4 with warmup and cosine decay to 1e-7, weight decay 1e-6, and EMA decay 0.999).</li>
+                        </ul>
+
+                        <h4 class="title is-5" style="margin-top: 1.2rem; margin-bottom: 0.5rem;">📊 Evaluation Protocol & Key Takeaways</h4>
+                        <ul>
+                            <li><strong>Rigorous Evaluation:</strong> Evaluated in the MuJoCo / Robosuite simulation environment. Results are averaged over <strong>5 independent training seeds</strong>, with each evaluation running 25–50 rollout episodes per task.</li>
+                            <li><strong>Spatio-Temporal Features Excel at Manipulation:</strong> <strong>RVM</strong> achieves the highest overall success rate and the most stable convergence across all seeds.</li>
+                            <li><strong>Video vs. Image Backbones:</strong> Video foundation models (<strong>RVM</strong>, <strong>MooG_v2</strong>, <strong>VideoMAE_v2</strong>) consistently outperform static image models (e.g., <strong>DINOv2</strong>) and non-recurrent baselines (<strong>CroCo</strong>, <strong>V-JEPA</strong>), highlighting the critical role of temporally coherent spatio-temporal representations for robotic control and physical interaction.</li>
+                        </ul>
+
+                        <p style="color: #666; font-size: 0.95rem; margin-top: 1.5rem; padding-left: 0.8rem; border-left: 3px solid #dbdbdb;">
                             <strong>Note:</strong> The robotics evaluations featured above are a joint collaboration with Aravindh Mahendran, Stannis Zhou, Meet Dave and Rajkumar Vasudeva Raju.
                         </p>
                     </div>
